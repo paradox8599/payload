@@ -2,7 +2,10 @@ import { withPayload } from '@payloadcms/next/withPayload';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone',
+  // output: 'standalone',
+  experimental: {
+    reactCompiler: true,
+  },
 };
 
 export default withPayload(nextConfig);

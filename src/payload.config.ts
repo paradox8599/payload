@@ -61,8 +61,7 @@ const payloadConfig = buildConfig({
 });
 
 export async function getPayload() {
-  const payload = await originalGetPayload({ config: payloadConfig });
-  return payload;
+  return await originalGetPayload({ config: payloadConfig });
 }
 
 export default payloadConfig;

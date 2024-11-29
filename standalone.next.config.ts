@@ -1,8 +1,8 @@
+import type { NextConfig } from 'next';
 import { withPayload } from '@payloadcms/next/withPayload';
-import { nextConfig as appNextConfig } from './next.config.mjs';
+import { nextConfig as appNextConfig } from './next.config';
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig: NextConfig = {
   ...appNextConfig,
   output: 'standalone',
 };

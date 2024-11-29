@@ -41,8 +41,8 @@ const payloadConfig = buildConfig({
 
   db: (process.env.VERCEL ? vercelPostgresAdapter : postgresAdapter)({
     pool: {
-      connectionString: process.env.DATABASE_URI!,
-      ssl: process.env.DATABASE_URI!.includes('sslmode=require'),
+      connectionString: process.env.DATABASE_URL!,
+      ssl: process.env.DATABASE_URL!.includes('sslmode=require'),
     },
   }),
 

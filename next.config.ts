@@ -1,7 +1,7 @@
+import type { NextConfig } from 'next';
 import { withPayload } from '@payloadcms/next/withPayload';
 
-/** @type {import('next').NextConfig} */
-export const nextConfig = {
+export const nextConfig: NextConfig = {
   experimental: {
     reactCompiler: true,
   },

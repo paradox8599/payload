@@ -4,7 +4,7 @@ export function payloadInit(_payload: Payload) {
   if (process.env.NODE_ENV === 'development') {
     console.log('Environment:', {
       PAYLOAD_SECRET: process.env.PAYLOAD_SECRET,
-      DATABASE_URI: process.env.DATABASE_URI,
+      DATABASE_URL: process.env.DATABASE_URL,
 
       S3_ENDPOINT: process.env.S3_ENDPOINT,
       S3_BUCKET: process.env.S3_BUCKET,

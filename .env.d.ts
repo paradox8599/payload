@@ -1,8 +1,10 @@
 declare global {
   namespace NodeJS {
     interface ProcessEnv {
-      /** tell payload if it is deployed on vercel */
-      PAYLOAD_VERCEL?: 'true' | 'false';
+      /** wether it is deployed on vercel */
+      VERCEL?: '1';
+      /** vercel environment */
+      VERCEL_ENV?: 'production' | 'preview' | 'development';
       /** payload secret */
       PAYLOAD_SECRET?: string;
       /** database connection string */
@@ -27,4 +29,4 @@ declare global {
   }
 }
 
-export {};
+export { };

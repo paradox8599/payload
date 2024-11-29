@@ -5,6 +5,7 @@ declare global {
       VERCEL?: '1';
       /** vercel environment */
       VERCEL_ENV?: 'production' | 'preview' | 'development';
+
       /** payload secret */
       PAYLOAD_SECRET?: string;
       /** database connection string */
@@ -29,4 +30,4 @@ declare global {
   }
 }
 
-export { };
+export {};

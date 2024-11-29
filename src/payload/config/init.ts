@@ -3,7 +3,6 @@ import { Payload } from 'payload';
 export function payloadInit(_payload: Payload) {
   if (process.env.NODE_ENV === 'development') {
     console.log('Environment:', {
-      PAYLOAD_VERCEL: process.env.PAYLOAD_VERCEL,
       PAYLOAD_SECRET: process.env.PAYLOAD_SECRET,
       DATABASE_URI: process.env.DATABASE_URI,
 

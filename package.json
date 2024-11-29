@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "prepare": "git config core.hooksPath .git-hooks 2>/dev/null",
+    "clean": "rm -rf .next node_modules",
     "dev": "next dev",
     "devsafe": "rm -rf .next && next dev",
     "generate:importmap": "payload generate:importmap",
@@ -16,8 +17,7 @@
     "build:docker": "docker build -t pl --secret id=env,src=.env .",
     "deploy:fly": "fly deploy --build-secret env=\"$(cat .env)\"",
     "lint": "next lint",
-    "payload": "payload",
-    "clean": "rm -rf .next node_modules"
+    "payload": "payload"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "^3.2.1",
@@ -30,8 +30,8 @@
     "graphql": "^16.9.0",
     "next": "^15.0.3",
     "payload": "^3.2.1",
-    "react": "^19.0.0-rc.1",
-    "react-dom": "^19.0.0-rc.1",
+    "react": "^19.0.0-rc-fb9a90fa48-20240614",
+    "react-dom": "^19.0.0-rc-fb9a90fa48-20240614",
     "sharp": "^0.33.5"
   },
   "devDependencies": {

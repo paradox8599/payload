@@ -31,11 +31,11 @@ const payloadConfig = buildConfig({
     autoLogin:
       process.env.NODE_ENV === 'development'
         ? {
-            email: 'admin@me.com',
-            password: 'admin@me.com',
-            username: 'admin@me.com',
-            prefillOnly: true,
-          }
+          email: 'admin@me.com',
+          password: 'admin@me.com',
+          username: 'admin@me.com',
+          prefillOnly: true,
+        }
         : undefined,
   },
 
@@ -50,10 +50,10 @@ const payloadConfig = buildConfig({
 
   email: process.env.RESEND_API_KEY
     ? resendAdapter({
-        apiKey: process.env.RESEND_API_KEY!,
-        defaultFromName: process.env.RESEND_DEFAULT_NAME!,
-        defaultFromAddress: process.env.RESEND_DEFAULT_FROM_ADDRESS!,
-      })
+      apiKey: process.env.RESEND_API_KEY!,
+      defaultFromName: process.env.RESEND_DEFAULT_NAME!,
+      defaultFromAddress: process.env.RESEND_DEFAULT_FROM_ADDRESS!,
+    })
     : undefined,
 });
 

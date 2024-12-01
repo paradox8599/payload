@@ -12,12 +12,14 @@ async function Users() {
 
 export default async function Page() {
   return (
-    <main>
-      <span>payload: </span>
-      <Suspense fallback="???">
-        <Users />
-      </Suspense>
-      <span> users</span>
+    <main className="p-4">
+      <section className="shadow p-4">
+        <span className="font-bold">payload: </span>
+        <Suspense fallback="???">
+          <Users />
+        </Suspense>
+        <span> users</span>
+      </section>
     </main>
   );
 }

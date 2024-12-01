@@ -28,6 +28,9 @@
       ],
       "@payload-config": [
         "./src/payload.config.ts"
+      ],
+      "@app/*": [
+        "./src/app/(app)/*"
       ]
     },
     "target": "ES2017"
@@ -35,6 +38,7 @@
   "include": [
     ".env.d.ts",
     "next-env.d.ts",
+    "postcss.config.mjs",
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"

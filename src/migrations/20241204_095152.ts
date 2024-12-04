@@ -3,7 +3,7 @@ import { MigrateUpArgs, MigrateDownArgs, sql } from '@payloadcms/db-postgres'
 export async function up({ payload, req }: MigrateUpArgs): Promise<void> {
   await payload.db.drizzle.execute(sql`
    CREATE TABLE IF NOT EXISTS "users" (
-  	"id" serial PRIMARY KEY NOT NULL,
+  	"id" varchar PRIMARY KEY NOT NULL,
   	"updated_at" timestamp(3) with time zone DEFAULT now() NOT NULL,
   	"created_at" timestamp(3) with time zone DEFAULT now() NOT NULL,
   	"email" varchar NOT NULL,
@@ -44,7 +44,7 @@ export async function up({ payload, req }: MigrateUpArgs): Promise<void> {
   	"order" integer,
   	"parent_id" integer NOT NULL,
   	"path" varchar NOT NULL,
-  	"users_id" integer,
+  	"users_id" varchar,
   	"media_id" integer
   );
   
@@ -61,7 +61,7 @@ export async function up({ payload, req }: MigrateUpArgs): Promise<void> {
   	"order" integer,
   	"parent_id" integer NOT NULL,
   	"path" varchar NOT NULL,
-  	"users_id" integer
+  	"users_id" varchar
   );
   
   CREATE TABLE IF NOT EXISTS "payload_migrations" (

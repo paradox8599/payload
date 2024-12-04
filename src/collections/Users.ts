@@ -9,28 +9,15 @@ export const Users: CollectionConfig = {
   auth: true,
   fields: [
     {
-      name: 'uuid',
-      label: 'UUID',
+      name: 'id',
+      label: 'ID',
       type: 'text',
       hasMany: false,
       unique: true,
       access: { update: () => false },
-      admin: {
-        hidden: true,
-        disableListColumn: true,
-      },
       hooks: {
-        beforeChange: <PayloadFieldHook<User, 'uuid'>[]>[
-          async ({ req, operation }) => {
-            while (operation === 'create') {
-              const uuid = randomUUID();
-              const count = await req.payload.count({
-                collection: 'users',
-                where: { uuid: { equals: uuid } },
-              });
-              if (count.totalDocs === 0) return uuid;
-            }
-          },
+        beforeChange: <PayloadFieldHook<User, 'id'>[]>[
+          ({ operation }) => (operation === 'create' ? randomUUID() : void 0),
         ],
       },
     },

@@ -39,12 +39,21 @@ const payloadConfig = buildConfig({
         : undefined,
   },
 
-  db: (process.env.VERCEL ? vercelPostgresAdapter : postgresAdapter)({
-    pool: {
-      connectionString: process.env.DATABASE_URL!,
-      ssl: process.env.DATABASE_URL!.includes('sslmode=require'),
-    },
-  }),
+  db: process.env.VERCEL
+    ? vercelPostgresAdapter({
+      pool: process.env.DATABASE_URL
+        ? undefined
+        : {
+          connectionString: process.env.DATABASE_URI,
+          ssl: process.env.DATABASE_URI?.includes('sslmode=require'),
+        },
+    })
+    : postgresAdapter({
+      pool: {
+        connectionString: process.env.DATABASE_URI!,
+        ssl: process.env.DATABASE_URI!.includes('sslmode=require'),
+      },
+    }),
 
   plugins: [...createS3Storage()],
 

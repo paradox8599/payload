@@ -9,7 +9,7 @@ declare global {
       /** payload secret */
       PAYLOAD_SECRET?: string;
       /** database connection string */
-      DATABASE_URL?: string;
+      DATABASE_URI?: string;
 
       /** S3 endpoint */
       S3_ENDPOINT?: string;
@@ -30,4 +30,4 @@ declare global {
   }
 }
 
-export {};
+export { };

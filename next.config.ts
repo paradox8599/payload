@@ -3,7 +3,7 @@ import { withPayload } from '@payloadcms/next/withPayload';
 
 export const nextConfig: NextConfig = {
   experimental: {
-    reactCompiler: process.env.NODE_ENV === 'production',
+    reactCompiler: process.env.NODE_ENV === 'production' ? true : undefined,
   },
 };
 

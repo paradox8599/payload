@@ -8,8 +8,8 @@ import { lexicalEditor } from '@payloadcms/richtext-lexical';
 import { vercelPostgresAdapter } from '@payloadcms/db-vercel-postgres';
 import { resendAdapter } from '@payloadcms/email-resend';
 
-import { Users } from './collections/Users';
-import { Media } from './collections/Media';
+import { Users } from './collections/users';
+import { Media } from './collections/media';
 import { createS3Storage } from './payload/config/s3-storage';
 import { payloadInit } from './payload/config/init';
 

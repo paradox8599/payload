@@ -41,6 +41,7 @@ const payloadConfig = buildConfig({
 
   db: process.env.VERCEL
     ? vercelPostgresAdapter({
+      idType: 'uuid',
       pool: process.env.DATABASE_URL
         ? undefined
         : {
@@ -49,6 +50,7 @@ const payloadConfig = buildConfig({
         },
     })
     : postgresAdapter({
+      idType: 'uuid',
       pool: {
         connectionString: process.env.DATABASE_URI!,
         ssl: process.env.DATABASE_URI!.includes('sslmode=require'),

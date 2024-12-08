@@ -29,28 +29,27 @@ const payloadConfig = buildConfig({
     user: Users.slug,
     importMap: { baseDir: path.resolve(dirname) },
     autoLogin:
-      process.env.NODE_ENV === 'development'
-        ? {
+      process.env.NODE_ENV !== 'development'
+        ? undefined
+        : {
             email: 'admin@me.com',
             password: 'admin@me.com',
             username: 'admin@me.com',
             prefillOnly: true,
-          }
-        : undefined,
+          },
   },
 
   db: (process.env.VERCEL ? vercelPostgresAdapter : postgresAdapter)({
     idType: 'uuid',
+    transactionOptions: { isolationLevel: undefined },
     pool: { connectionString: process.env.DATABASE_URI || undefined },
   }),
 
-  email: !process.env.RESEND_API_KEY
-    ? undefined
-    : resendAdapter({
-        apiKey: process.env.RESEND_API_KEY!,
-        defaultFromName: process.env.RESEND_DEFAULT_NAME!,
-        defaultFromAddress: process.env.RESEND_DEFAULT_FROM_ADDRESS!,
-      }),
+  email: (!process.env.RESEND_API_KEY ? undefined : resendAdapter)?.({
+    apiKey: process.env.RESEND_API_KEY!,
+    defaultFromName: process.env.RESEND_DEFAULT_NAME!,
+    defaultFromAddress: process.env.RESEND_DEFAULT_FROM_ADDRESS!,
+  }),
 
   plugins: [...createS3Storage()],
 });

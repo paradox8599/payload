@@ -1,11 +1,12 @@
 import { s3Storage } from '@payloadcms/storage-s3';
 
 export function createS3Storage() {
+  const result = [];
+
   const hasS3Storage =
     process.env.S3_BUCKET &&
     process.env.S3_ACCESS_KEY_ID &&
     process.env.S3_SECRET_ACCESS_KEY;
-  const result = [];
 
   if (hasS3Storage) {
     result.push(

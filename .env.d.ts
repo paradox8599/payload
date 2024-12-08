@@ -6,10 +6,11 @@ declare global {
       /** vercel environment */
       VERCEL_ENV?: 'production' | 'preview' | 'development';
 
-      /** payload secret */
-      PAYLOAD_SECRET?: string;
       /** database connection string */
       DATABASE_URI?: string;
+
+      /** payload secret */
+      PAYLOAD_SECRET?: string;
 
       /** S3 endpoint */
       S3_ENDPOINT?: string;

@@ -1,4 +1,4 @@
-FROM imbios/bun-node:1.1.37-22.11.0-alpine AS base
+FROM imbios/bun-node:1.1.38-22.11.0-alpine AS base
 
 WORKDIR /app
 
@@ -19,12 +19,9 @@ ENV NODE_ENV=production
 
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-COPY ./standalone.next.config.mjs ./next.config.mjs
+COPY ./next.config.standalone.ts ./next.config.ts
 
-RUN --mount=type=secret,id=env \
-  cp /run/secrets/env ./.env \
-  # && bun run payload migrate \
-  && bun run build \
+RUN bun run build \
   && rm -rf ./.env ./node_modules ./.next/cache
 
 ################################################################
@@ -34,7 +31,7 @@ FROM base AS runner
 
 # for payload migrate
 COPY . /payload
-COPY ./standalone.next.config.mjs /payload/next.config.mjs
+COPY ./next.config.standalone.ts /payload/next.config.ts
 
 # for app
 COPY --from=builder /app/.next/standalone ./

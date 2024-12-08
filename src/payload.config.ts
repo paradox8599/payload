@@ -17,13 +17,13 @@ const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 
 const payloadConfig = buildConfig({
-  secret: process.env.PAYLOAD_SECRET!,
+  typescript: { outputFile: path.resolve(dirname, 'payload.d.ts') },
+  secret: process.env.PAYLOAD_SECRET || '',
   sharp,
   editor: lexicalEditor(),
-  typescript: { outputFile: path.resolve(dirname, 'payload.d.ts') },
+  onInit: payloadInit,
 
   collections: [Users, Media],
-  onInit: payloadInit,
 
   admin: {
     user: Users.slug,
@@ -57,15 +57,15 @@ const payloadConfig = buildConfig({
       },
     }),
 
-  plugins: [...createS3Storage()],
-
-  email: process.env.RESEND_API_KEY
-    ? resendAdapter({
+  email: !process.env.RESEND_API_KEY
+    ? undefined
+    : resendAdapter({
       apiKey: process.env.RESEND_API_KEY!,
       defaultFromName: process.env.RESEND_DEFAULT_NAME!,
       defaultFromAddress: process.env.RESEND_DEFAULT_FROM_ADDRESS!,
-    })
-    : undefined,
+    }),
+
+  plugins: [...createS3Storage()],
 });
 
 export async function getPayload() {

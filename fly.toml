@@ -6,6 +6,7 @@ primary_region = 'syd'
 [build]
 
 [deploy]
+# release_command = "migrate"
 
 [http_service]
 internal_port = 3000

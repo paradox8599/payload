@@ -38,4 +38,12 @@ next-env.d.ts
 .env
 
 /media
-next.config.mjs
+
+# unrelated tracked files
+.env*
+.gitignore
+Dockerfile
+README.md
+docker-compose.yml
+fly*.toml
+vercel.json

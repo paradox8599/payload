@@ -21,7 +21,10 @@ export function createS3Storage() {
           },
         },
         collections: {
-          media: { prefix: 'media/', disableLocalStorage: true },
+          media: {
+            prefix: 'media/',
+            generateFileURL: undefined,
+          },
         },
         disableLocalStorage: true,
       }),

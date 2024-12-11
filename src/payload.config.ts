@@ -8,8 +8,8 @@ import { lexicalEditor } from '@payloadcms/richtext-lexical';
 import { vercelPostgresAdapter } from '@payloadcms/db-vercel-postgres';
 import { resendAdapter } from '@payloadcms/email-resend';
 
-import { Users } from './collections/users';
-import { Media } from './collections/media';
+import { Users } from './payload/collections/users';
+import { Media } from './payload/collections/media';
 import { createS3Storage } from './payload/config/s3-storage';
 import { payloadInit } from './payload/config/init';
 
@@ -32,11 +32,11 @@ const payloadConfig = buildConfig({
       process.env.NODE_ENV !== 'development'
         ? undefined
         : {
-            email: 'admin@me.com',
-            password: 'admin@me.com',
-            username: 'admin@me.com',
-            prefillOnly: true,
-          },
+          email: 'admin@me.com',
+          password: 'admin@me.com',
+          username: 'admin@me.com',
+          prefillOnly: true,
+        },
   },
 
   db: (process.env.VERCEL ? vercelPostgresAdapter : postgresAdapter)({

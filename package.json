@@ -11,6 +11,7 @@
     "devsafe": "rm -rf .next && next dev",
     "generate:importmap": "payload generate:importmap",
     "generate:types": "payload generate:types",
+    "generate:db-schema": "payload generate:db-schema",
     "gen": "bun generate:importmap && bun generate:types",
     "build": "next build",
     "start": "next start",

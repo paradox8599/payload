@@ -34,11 +34,11 @@ const payloadConfig = buildConfig({
       process.env.NODE_ENV !== 'development'
         ? undefined
         : {
-          email: 'admin@me.com',
-          password: 'admin@me.com',
-          username: 'admin@me.com',
-          prefillOnly: true,
-        },
+            email: 'admin@me.com',
+            password: 'admin@me.com',
+            username: 'admin@me.com',
+            prefillOnly: true,
+          },
   },
 });
 

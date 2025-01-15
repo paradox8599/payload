@@ -16,7 +16,7 @@ const dirname = path.dirname(filename);
 
 const payloadConfig = buildConfig({
   typescript: { outputFile: path.resolve(dirname, 'payload.d.ts') },
-  secret: process.env.PAYLOAD_SECRET || '',
+  secret: process.env.PAYLOAD_SECRET || 'xxxxxxxxxxxxxxxxxxxxxxxx',
   onInit: payloadInit,
 
   editor: lexicalEditor(),

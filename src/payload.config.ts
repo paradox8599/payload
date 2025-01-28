@@ -1,34 +1,46 @@
-import { payloadCloudPlugin } from '@payloadcms/payload-cloud'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import path from 'path'
-import { buildConfig } from 'payload'
-import { fileURLToPath } from 'url'
+import { buildConfig, getPayload as originalGetPayload } from 'payload'
 import sharp from 'sharp'
+import { fileURLToPath } from 'url'
 
-import { Users } from './payload/collections/users'
 import { Media } from './payload/collections/media'
+import { Users } from './payload/collections/users'
 import { db } from './payload/config/database'
+import { email } from './payload/config/email'
+import { payloadInit } from './payload/config/init'
+import { createS3Storage } from './payload/config/storage'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
-export default buildConfig({
+const payloadConfig = buildConfig({
+  secret: process.env.PAYLOAD_SECRET || 'f9f43f5611aabaf0d48e1cf5',
+  typescript: { outputFile: path.resolve(dirname, 'payload-types.d.ts') },
+  onInit: payloadInit,
+
+  globals: [],
+  collections: [Users, Media],
+
+  editor: lexicalEditor(),
+  email,
+  db,
+  sharp,
+  plugins: [...createS3Storage()],
+
   admin: {
     user: Users.slug,
     importMap: {
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media],
-  editor: lexicalEditor(),
-  secret: process.env.PAYLOAD_SECRET || '',
-  typescript: {
-    outputFile: path.resolve(dirname, 'payload-types.d.ts'),
-  },
-  db,
-  sharp,
-  plugins: [
-    payloadCloudPlugin(),
-    // storage-adapter-placeholder
-  ],
+
+  // cors: [],
+  debug: process.env.NODE_ENV !== 'production',
 })
+
+export async function getPayload() {
+  return await originalGetPayload({ config: payloadConfig })
+}
+
+export default payloadConfig

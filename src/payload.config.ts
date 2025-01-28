@@ -1,5 +1,3 @@
-// storage-adapter-import-placeholder
-import { vercelPostgresAdapter } from '@payloadcms/db-vercel-postgres'
 import { payloadCloudPlugin } from '@payloadcms/payload-cloud'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import path from 'path'
@@ -9,6 +7,7 @@ import sharp from 'sharp'
 
 import { Users } from './payload/collections/users'
 import { Media } from './payload/collections/media'
+import { db } from './payload/config/database'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -26,11 +25,7 @@ export default buildConfig({
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.d.ts'),
   },
-  db: vercelPostgresAdapter({
-    pool: {
-      connectionString: process.env.POSTGRES_URL || '',
-    },
-  }),
+  db,
   sharp,
   plugins: [
     payloadCloudPlugin(),

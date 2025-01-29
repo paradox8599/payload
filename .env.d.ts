@@ -1,6 +1,9 @@
 declare global {
   namespace NodeJS {
     interface ProcessEnv {
+      /** next build output */
+      NEXT_OUTPUT?: 'standalone';
+
       /** wether it is deployed on vercel */
       VERCEL?: '1';
       /** vercel environment */
@@ -31,4 +34,4 @@ declare global {
   }
 }
 
-export {};
+export { };

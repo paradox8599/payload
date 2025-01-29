@@ -14,6 +14,7 @@
     "generate:db-schema": "payload generate:db-schema",
     "gen": "bun generate:importmap && bun generate:types",
     "build": "next build",
+    "build:standalone": "NEXT_OUTPUT=standalone next build",
     "start": "next start",
     "lint": "next lint",
     "payload": "payload"

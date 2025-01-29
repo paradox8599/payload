@@ -1,8 +1,8 @@
-import { RequestContext as OriginalRequestContext } from 'payload'
+import { RequestContext as OriginalRequestContext } from 'payload';
 
 declare module 'payload' {
   export interface RequestContext extends OriginalRequestContext {
     // define context
-    placeholder: never
+    placeholder: never;
   }
 }

@@ -1,5 +1,5 @@
-import type { CollectionConfig, CollectionBeforeChangeHook } from 'payload'
-import type { User } from '@/payload-types'
+import type { CollectionConfig, CollectionBeforeChangeHook } from 'payload';
+import type { User } from '@/payload-types';
 
 export const Users: CollectionConfig = {
   slug: 'users',
@@ -10,4 +10,4 @@ export const Users: CollectionConfig = {
   hooks: {
     beforeChange: <CollectionBeforeChangeHook<User>[]>[({ data }) => data],
   },
-}
+};

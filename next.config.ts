@@ -3,7 +3,7 @@ import type { NextConfig } from 'next';
 
 export const nextConfig: NextConfig = {
   experimental: {
-    // reactCompiler: process.env.NODE_ENV === 'production' ? true : undefined,
+    reactCompiler: process.env.NODE_ENV === 'production' ? true : undefined,
   },
   output: undefined,
 };

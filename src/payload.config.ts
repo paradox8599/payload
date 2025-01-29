@@ -36,7 +36,8 @@ const payloadConfig = buildConfig({
   },
 
   // cors: [],
-  debug: process.env.NODE_ENV !== 'production',
+  // debug: process.env.NODE_ENV !== 'production',
+  debug: true,
 });
 
 export async function getPayload() {

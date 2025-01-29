@@ -27,12 +27,18 @@
     "@payloadcms/payload-cloud": "^3.19.0",
     "@payloadcms/richtext-lexical": "^3.19.0",
     "@payloadcms/storage-s3": "^3.19.0",
+    "@radix-ui/react-slot": "^1.1.1",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "graphql": "^16.10.0",
+    "lucide-react": "^0.474.0",
     "next": "^15.1.6",
     "payload": "^3.19.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "sharp": "^0.33.5"
+    "sharp": "^0.33.5",
+    "tailwind-merge": "^2.6.0",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
@@ -51,6 +57,7 @@
     "typescript": "^5.7.3"
   },
   "engines": {
-    "node": "^18.20.2 || >=20.9.0"
+    "node": "^18.20.2 || >=20.9.0",
+    "react-is": "^19"
   }
 }

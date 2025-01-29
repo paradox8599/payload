@@ -5,7 +5,7 @@ export const nextConfig: NextConfig = {
   experimental: {
     reactCompiler: process.env.NODE_ENV === 'production' ? true : undefined,
   },
-  output: undefined,
+  // output: 'standalone',
 };
 
 export default withPayload(nextConfig);

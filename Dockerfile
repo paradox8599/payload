@@ -1,5 +1,7 @@
 FROM imbios/bun-node:1.2.1-22.13.1-alpine AS base
 
+ENV TZ=Australia/Sydney
+
 ################################################################
 # Install dependencies
 

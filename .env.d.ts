@@ -1,7 +1,7 @@
 declare global {
   namespace NodeJS {
     interface ProcessEnv {
-      /** wether it is deployed on vercel */
+      /** wether it is deployed on vercel, auto set by vercel */
       VERCEL?: '1';
       /** vercel environment */
       VERCEL_ENV?: 'production' | 'preview' | 'development';

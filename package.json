@@ -47,8 +47,6 @@
     "eslint-plugin-react-compiler": "^19.0.0-beta-af1b7da-20250417",
     "postcss": "^8.5.3",
     "prettier": "^3.5.3",
-    "tailwindcss": "^3.4.17",
-    "tailwindcss-scoped-preflight": "^3.4.12",
     "typescript": "^5.8.3"
   },
   "overrides": {
